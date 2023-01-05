@@ -6,6 +6,7 @@ export const Container = styled.section`
     background-color: #ffffff;
     border-radius: 10px;
 
+    padding: 1em;
     margin: 0 auto;
     margin-top: 3em;
 
