@@ -29,7 +29,6 @@ export function Users() {
         <>
             <Header children="Users" />
             <AppBar/>
-            <Form />
             <Container>
                 {users.map((user, index) => (
                     <Usercard
