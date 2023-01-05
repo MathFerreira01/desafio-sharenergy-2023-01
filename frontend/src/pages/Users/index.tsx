@@ -7,6 +7,7 @@ import { userApi } from '../../services/Users/api';
 import { Container } from './style';
 
 import { Types } from 'mongoose';
+import { AppBar } from '../../components/AppBar';
 
 export function Users() {
     const [users, setUsers] = useState<Iuser[]>([]);
@@ -27,6 +28,7 @@ export function Users() {
     return (
         <>
             <Header children="Users" />
+            <AppBar/>
             <Form />
             <Container>
                 {users.map((user, index) => (

@@ -14,7 +14,6 @@ export interface usersProps {
 }
 
 export interface Iuser {
-    client: {
         _id: Types.ObjectId;
         name: string;
         email: string;
@@ -22,5 +21,4 @@ export interface Iuser {
         adress: string;
         cpf: string;
         deleteUser: (_id: Types.ObjectId) => void;
-    };
 }
