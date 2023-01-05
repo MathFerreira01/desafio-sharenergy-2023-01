@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 
 export const Container = styled(Card)`
-    width: 40%;
+    width: 35%;
     min-width: 500px;
     margin: 1em;
 `;
@@ -18,7 +18,7 @@ export const Wrapper = styled(CardContent)`
 export const Box = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 1em 0 1em 0;
 `;
 
