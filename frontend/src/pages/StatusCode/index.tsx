@@ -3,17 +3,21 @@ import { Container, TextField, WrapperImage, Image, Text } from './style';
 
 import { useEffect, useState } from 'react';
 import { apiCode } from '../../services/statusCode/apiStatusCode';
+import { getStatusCodeServices } from '../../services/statusCode/getStatusCode';
 
 export function Status() {
-    const [code, setCode] = useState();
+    const [status, setStatus] = useState();
     const [inputValue, setInputValue] = useState('');
 
-    const getCode = () => {
-        apiCode.get(`/`).then((res) => setCode(res.data));
+    const getStatusCode = async () => {
+        const response = await getStatusCodeServices();
+        if (!response.error) {
+            setStatus(response);
+        }
     };
 
     useEffect(() => {
-        getCode();
+        getStatusCode();
     }, []);
 
     return (

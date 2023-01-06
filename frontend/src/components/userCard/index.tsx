@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { Form } from '../Form';
-import axios from 'axios';
 
 export function Usercard({
     index,
