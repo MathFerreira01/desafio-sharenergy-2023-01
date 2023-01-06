@@ -1,41 +1,33 @@
 import { createContext, useState, ReactElement } from 'react';
 import { usersProps } from '../interface/users';
 
-
-export const UserContext = createContext<usersProps>({
-
+const initialState = {
     name: '',
     email: '',
     phone: '',
     adress: '',
     cpf: '',
-    setName: () => {},
-    setEmail: () => {},
-    setPhone: () => {},
-    setAdress: () => {},
-    setCpf: () => {},
+};
+
+export const UserContext = createContext<usersProps>({
+    client: {
+        name: '',
+        email: '',
+        phone: '',
+        adress: '',
+        cpf: '',
+    },
+    setClient: () => {},
 });
 
-export const UserProvider = ({ children }: {children: ReactElement}) => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [adress, setAdress] = useState('');
-    const [cpf, setCpf] = useState('');
+export const UserProvider = ({ children }: { children: ReactElement }) => {
+    const [client, setClient] = useState(initialState);
 
     return (
         <UserContext.Provider
             value={{
-                name,
-                setName,
-                email,
-                setEmail,
-                phone,
-                setPhone,
-                adress,
-                setAdress,
-                cpf,
-                setCpf,
+                client,
+                setClient,
             }}
         >
             {children}

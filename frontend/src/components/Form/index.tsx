@@ -13,32 +13,19 @@ import {
 } from './style';
 
 export function Form() {
-    const {
-        name,
-        setName,
-        email,
-        setEmail,
-        phone,
-        setPhone,
-        adress,
-        setAdress,
-        cpf,
-        setCpf,
-    } = useContext(UserContext);
+    const { client, setClient } = useContext(UserContext);
 
     async function createUser() {
         const response = await axios.post('http://localhost:3000/users', {
-            name,
-            email,
-            phone,
-            adress,
-            cpf,
+            ...client,
         });
-        setName('');
-        setEmail('');
-        setPhone('');
-        setAdress('');
-        setCpf('');
+        setClient({
+            name: '',
+            email: '',
+            phone: '',
+            adress: '',
+            cpf: '',
+        });
     }
 
     return (
@@ -50,16 +37,26 @@ export function Form() {
                         <Label>Name</Label>
                         <Input
                             type="text"
-                            value={name}
-                            onChange={(event) => setName(event.target.value)}
+                            value={client.name}
+                            onChange={(event) =>
+                                setClient({
+                                    ...client,
+                                    name: event.target.value,
+                                })
+                            }
                         />
                     </Wrapper>
                     <Wrapper>
                         <Label>Email</Label>
                         <Input
                             type="email"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
+                            value={client.email}
+                            onChange={(event) =>
+                                setClient({
+                                    ...client,
+                                    email: event.target.value,
+                                })
+                            }
                         />
                     </Wrapper>
                 </BoxForm>
@@ -68,24 +65,39 @@ export function Form() {
                         <Label>Telefone</Label>
                         <TextField
                             type="text"
-                            value={phone}
-                            onChange={(event) => setPhone(event.target.value)}
+                            value={client.phone}
+                            onChange={(event) =>
+                                setClient({
+                                    ...client,
+                                    phone: event.target.value,
+                                })
+                            }
                         />
                     </Wrapper>
                     <Wrapper>
                         <Label>Endereço</Label>
                         <TextField
                             type="text"
-                            value={adress}
-                            onChange={(event) => setAdress(event.target.value)}
+                            value={client.adress}
+                            onChange={(event) =>
+                                setClient({
+                                    ...client,
+                                    adress: event.target.value,
+                                })
+                            }
                         />
                     </Wrapper>
                     <Wrapper>
                         <Label>CPF</Label>
                         <TextField
                             type="text"
-                            value={cpf}
-                            onChange={(event) => setCpf(event.target.value)}
+                            value={client.cpf}
+                            onChange={(event) =>
+                                setClient({
+                                    ...client,
+                                    cpf: event.target.value,
+                                })
+                            }
                         />
                     </Wrapper>
                 </BoxForm>
