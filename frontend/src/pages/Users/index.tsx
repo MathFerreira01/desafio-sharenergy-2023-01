@@ -8,22 +8,24 @@ import { Container } from './style';
 import { Types } from 'mongoose';
 import { AppBar } from '../../components/AppBar';
 import { getUsersServices } from '../../services/Users/getUsers';
+import { deleteUsersServices } from '../../services/Users/deleteUsers';
 
 export function Users() {
     const [users, setUsers] = useState<Iuser[]>([]);
 
-    async function deleteUser(_id: Types.ObjectId) {
-        const responde = await userApi.delete(`/users/${_id}`);
-        getUsersServices();
-    }
+    const getUsers = async () => {
+        const response = await getUsersServices();
+        if (!response.error) {
+            setUsers(response);
+        }
+    };
+
+    const deleteUser = async (_id: Types.ObjectId) => {
+        const response = await deleteUsersServices(_id);
+        getUsers();
+    };
 
     useEffect(() => {
-        const getUsers = async () => {
-            const response = await getUsersServices();
-            if (!response.error) {
-                setUsers(response);
-            }
-        };
         getUsers();
     }, []);
 

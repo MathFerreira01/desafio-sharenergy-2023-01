@@ -22,9 +22,6 @@ export function Usercard({
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    async function editUser() {
-        const response = await axios.put("/users")
-    }
     return (
         <>
             <Container key={index}>
