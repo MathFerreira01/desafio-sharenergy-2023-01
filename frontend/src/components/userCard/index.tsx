@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { Form } from '../Form';
+import axios from 'axios';
 
 export function Usercard({
     index,
@@ -20,6 +21,10 @@ export function Usercard({
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    async function editUser() {
+        const response = await axios.put("/users")
+    }
     return (
         <>
             <Container key={index}>
