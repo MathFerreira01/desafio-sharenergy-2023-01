@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { userProps } from '../../interface/user';
+import { userProps } from '../../interface/ramdomUser';
 import { Image, WrapperPagination, SearchInput } from './style';
 import { UsersPagination } from '../Pagination';
 import { getUserService } from '../../services/RamdomUser/getUsers';

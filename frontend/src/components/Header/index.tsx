@@ -8,11 +8,7 @@ import {
     LinkNavigation,
 } from './style';
 
-interface PropsHeader {
-    children: string;
-}
-
-export function Header(props: PropsHeader) {
+export function Header() {
     const clearStorage = () => {
         console.log('chegou');
         localStorage.clear();
@@ -21,10 +17,10 @@ export function Header(props: PropsHeader) {
 
     return (
         <Container>
-            <Text>{props.children}</Text>
+            <Text>SHARENERGY</Text>
             <Navigation>
                 <LinkPage>
-                    <LinkNavigation to="/">Home</LinkNavigation>
+                    <LinkNavigation to="/">Ramdom Users</LinkNavigation>
                 </LinkPage>
                 <LinkPage>
                     <LinkNavigation to="/cats">Status Code</LinkNavigation>

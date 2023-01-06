@@ -31,7 +31,7 @@ export function Form() {
     return (
         <Container>
             <form onSubmit={createUser}>
-                <Text>Fill the form</Text>
+                <Text>Fill the Form</Text>
                 <BoxForm>
                     <Wrapper>
                         <Label>Name</Label>

@@ -6,7 +6,7 @@ export function Home() {
     return (
         <div>
             <>
-                <Header children="List User" />
+                <Header/>
                 <Container>
                     <UsersTable />
                 </Container>
