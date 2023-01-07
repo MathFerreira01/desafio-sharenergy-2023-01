@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Button } from '../Button/style';
-import { Input } from '../Input';
+import Botao from '../Button';
+import  Input  from '../Input';
 
 export const Container = styled.section`
     width: 35%;
@@ -44,6 +44,6 @@ export const TextField = styled(Input)`
     width: 100%;
 `;
 
-export const ButtonRegister = styled(Button)`
+export const ButtonRegister = styled(Botao)`
     margin: 1em;
 `;

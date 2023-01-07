@@ -24,6 +24,7 @@ const Users = () => {
 
     const deleteUser = async (_id: Types.ObjectId) => {
         const response = await deleteUsersServices(_id);
+        
         getUsers();
     };
 

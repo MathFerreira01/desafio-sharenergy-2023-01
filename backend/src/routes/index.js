@@ -4,7 +4,7 @@ import cors from 'cors'
 
 const routes = (App) => {
     App.route('/').get((req, res) => {
-        res.status(200).send({titulo: "User List"})
+        res.status(200).send({Title: "User List"})
     })
 
     App.use(

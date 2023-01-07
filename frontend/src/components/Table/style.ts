@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Input } from '../Input';
+import Input from '../Input';
 
 export const Image = styled.img`
     border-radius: 50%;
@@ -10,6 +10,6 @@ export const WrapperPagination = styled.div`
 `;
 
 export const SearchInput = styled(Input)`
-    width: 50%;
+    width: 100%;
     margin-bottom: 2em;
 `;
