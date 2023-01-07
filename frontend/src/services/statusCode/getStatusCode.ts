@@ -1,6 +1,6 @@
-import { apiCode } from './apiStatusCode';
+import apiCode from './apiStatusCode';
 
-export const getStatusCodeServices = async () => {
+const getStatusCodeServices = async () => {
     return await apiCode
         .get('/')
         .then((response) => response.data)
@@ -8,3 +8,5 @@ export const getStatusCodeServices = async () => {
             error: true;
         });
 };
+
+export default getStatusCodeServices;

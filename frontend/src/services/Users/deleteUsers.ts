@@ -1,4 +1,4 @@
-import { userApi } from './api';
+import userApi from './api';
 import { Types } from 'mongoose';
 
 export const deleteUsersServices = async (id: Types.ObjectId) => {
@@ -9,3 +9,5 @@ export const deleteUsersServices = async (id: Types.ObjectId) => {
             error: true;
         });
 };
+
+export default deleteUsersServices;

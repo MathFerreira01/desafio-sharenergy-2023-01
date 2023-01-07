@@ -1,4 +1,4 @@
-import { Botao } from '../Button';
+import Botao from '../Button';
 import {
     Container,
     Text,
@@ -8,7 +8,7 @@ import {
     LinkNavigation,
 } from './style';
 
-export function Header() {
+const Header = () => {
     const clearStorage = () => {
         console.log('chegou');
         localStorage.clear();
@@ -37,4 +37,6 @@ export function Header() {
             </WrapperLogout>
         </Container>
     );
-}
+};
+
+export default Header;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Iuser } from '../../interface/users';
-import { createUsersServices } from '../../services/Users/createUsers';
-import { editUsersServices } from '../../services/Users/editUsers';
-import { Input } from '../Input';
+import createUsersServices from '../../services/Users/createUsers';
+import editUsersServices from '../../services/Users/editUsers';
+import Input from '../Input';
 import {
     Container,
     Text,
@@ -32,12 +32,12 @@ const Form = ({ user }: { user: Iuser }) => {
         createUser();
     };
 
-    const createUser = async () => {
-        const response = await createUsersServices(client);
-    };
-
     const editUser = async () => {
         const response = await editUsersServices(user._id, client);
+    };
+
+    const createUser = async () => {
+        const response = await createUsersServices(client);
     };
 
     return (

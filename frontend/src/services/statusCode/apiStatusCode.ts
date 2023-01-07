@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const apiCode = axios.create({
-    baseURL:  "https://http.cat"
-})
+const apiCode = axios.create({
+    baseURL: 'https://http.cat',
+});
+
+export default apiCode;

@@ -5,10 +5,10 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/Firebase/firebaseConfig';
 
 import { Wrapper, Title, Form, Label, Span, SpanMessageError } from './style';
-import { Input } from '../../components/Input/style';
-import { Botao } from '../../components/Button';
+import Input from '../../components/Input';
+import Botao from '../../components/Button';
 
-export function Cadastro() {
+const Cadastro = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [messageError, setMessageError] = useState<string>('');
@@ -60,4 +60,6 @@ export function Cadastro() {
             </Form>
         </Wrapper>
     );
-}
+};
+
+export default Cadastro;

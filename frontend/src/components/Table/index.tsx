@@ -10,10 +10,10 @@ import Paper from '@mui/material/Paper';
 
 import { userProps } from '../../interface/ramdomUser';
 import { Image, WrapperPagination, SearchInput } from './style';
-import { UsersPagination } from '../Pagination';
-import { getUserService } from '../../services/RamdomUser/getUsers';
+import UsersPagination from '../Pagination';
+import getUserService from '../../services/RamdomUser/getUsers';
 
-export function UsersTable() {
+const UsersTable = () => {
     const [users, setUsers] = useState<userProps[]>([]);
     const [page, setPage] = useState(1);
     const [numberOfPages, setNumberOfPages] = useState(15);
@@ -84,4 +84,6 @@ export function UsersTable() {
             </WrapperPagination>
         </>
     );
-}
+};
+
+export default UsersTable;

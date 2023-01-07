@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Header } from '../../components/Header';
-import { Usercard } from '../../components/userCard';
-import { Iuser } from '../../interface/users';
-import { userApi } from '../../services/Users/api';
+
+import Header from '../../components/Header';
+import Usercard from '../../components/userCard';
+import AppBar from '../../components/AppBar';
+
 import { Container } from './style';
 
+import { Iuser } from '../../interface/users';
 import { Types } from 'mongoose';
-import { AppBar } from '../../components/AppBar';
-import { getUsersServices } from '../../services/Users/getUsers';
-import { deleteUsersServices } from '../../services/Users/deleteUsers';
 
-export function Users() {
+import { deleteUsersServices } from '../../services/Users/deleteUsers';
+import getUsersServices from '../../services/Users/getUsers';
+
+const Users = () => {
     const [users, setUsers] = useState<Iuser[]>([]);
 
     const getUsers = async () => {
@@ -31,7 +33,7 @@ export function Users() {
 
     return (
         <>
-            <Header/>
+            <Header />
             <AppBar />
             <Container>
                 {users.map((user, index) => (
@@ -49,4 +51,6 @@ export function Users() {
             </Container>
         </>
     );
-}
+};
+
+export default Users;

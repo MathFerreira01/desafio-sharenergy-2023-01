@@ -1,8 +1,8 @@
-import { userApi } from './api';
+import userApi from './api';
 import { Types } from 'mongoose';
 import { Iuser } from '../../interface/users';
 
-export const editUsersServices = async (id: Types.ObjectId, user: Iuser) => {
+const editUsersServices = async (id: Types.ObjectId, user: Iuser) => {
     return await userApi
         .put(`/users/${id}`, user)
         .then((response) => response.data)
@@ -10,3 +10,5 @@ export const editUsersServices = async (id: Types.ObjectId, user: Iuser) => {
             error: true;
         });
 };
+
+export default editUsersServices;

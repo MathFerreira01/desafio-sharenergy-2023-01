@@ -14,11 +14,11 @@ import {
     ContainerCheckBox,
 } from './style';
 
-import { Input } from '../../components/Input';
-import { Botao } from '../../components/Button';
+import Input from '../../components/Input';
+import Botao from '../../components/Button';
 import Checkbox from '@mui/material/Checkbox';
 
-export function Login() {
+const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [messageError, setMessageError] = useState<string>('');
@@ -97,4 +97,6 @@ export function Login() {
             </Form>
         </Wrapper>
     );
-}
+};
+
+export default Login;

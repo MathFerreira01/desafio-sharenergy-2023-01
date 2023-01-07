@@ -1,11 +1,10 @@
-import { Header } from '../../components/Header';
+import { useEffect, useState } from 'react';
 import { Container, TextField, WrapperImage, Image, Text } from './style';
 
-import { useEffect, useState } from 'react';
-import { apiCode } from '../../services/statusCode/apiStatusCode';
-import { getStatusCodeServices } from '../../services/statusCode/getStatusCode';
+import Header from '../../components/Header';
+import getStatusCodeServices from '../../services/statusCode/getStatusCode';
 
-export function Status() {
+const Status = () => {
     const [status, setStatus] = useState();
     const [inputValue, setInputValue] = useState('');
 
@@ -22,7 +21,7 @@ export function Status() {
 
     return (
         <>
-            <Header/>
+            <Header />
             <Text>HTTP Cats</Text>
             <Container>
                 <TextField
@@ -36,4 +35,6 @@ export function Status() {
             </Container>
         </>
     );
-}
+};
+
+export default Status;

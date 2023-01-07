@@ -4,13 +4,13 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { Loader } from '../Loader';
 
-import { Botao } from '../Button';
+import Botao from '../Button';
 import { ContainerCard, WrraperButton, Text } from './style';
 
 import { dogsProps } from '../../interface/dogs';
 import { getDogsServices } from '../../services/RamdomDog/getDogs';
 
-export function CardStatusCode() {
+const CardStatusCode = () => {
     const [dogs, setDogs] = useState<dogsProps>();
     const [loading, setLoading] = useState(false);
 
@@ -39,4 +39,6 @@ export function CardStatusCode() {
             </ContainerCard>
         </>
     );
-}
+};
+
+export default CardStatusCode;

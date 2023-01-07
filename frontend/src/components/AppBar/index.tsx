@@ -1,20 +1,18 @@
-import { Button } from '../Button/style';
+import { useState } from 'react';
 import { Container } from './style';
-
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { useState } from 'react';
 import Form from '../Form';
+import Botao from '../Button';
 
-
-export function AppBar() {
+const AppBar = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose  = () => setOpen(false);
-    
+    const handleClose = () => setOpen(false);
+
     return (
         <Container>
-            <Button children="+ Add User" onClick={handleOpen}/>
+            <Botao children="+ Add User" onClick={handleOpen} />
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -27,4 +25,6 @@ export function AppBar() {
             </Modal>
         </Container>
     );
-}
+};
+
+export default AppBar;

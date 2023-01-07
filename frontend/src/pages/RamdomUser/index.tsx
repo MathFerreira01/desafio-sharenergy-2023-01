@@ -1,16 +1,18 @@
-import { Header } from '../../components/Header';
-import { UsersTable } from '../../components/Table';
+import Header from '../../components/Header';
+import UsersTable from '../../components/Table';
 import { Container } from './style';
 
-export function Home() {
+const Home = () => {
     return (
         <div>
             <>
-                <Header/>
+                <Header />
                 <Container>
                     <UsersTable />
                 </Container>
             </>
         </div>
     );
-}
+};
+
+export default Home;

@@ -5,9 +5,9 @@ import { Iuser } from '../../interface/users';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import Form  from '../Form';
+import Form from '../Form';
 
-export function Usercard({
+const Usercard = ({
     index,
     _id,
     name,
@@ -16,7 +16,7 @@ export function Usercard({
     adress,
     cpf,
     deleteUser,
-}: Iuser) {
+}: Iuser) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -39,7 +39,9 @@ export function Usercard({
                     </Button>
                     <Modal open={open} onClose={handleClose}>
                         <Box>
-                            <Form user={{name, email, phone, adress, cpf, _id}}/>
+                            <Form
+                                user={{ name, email, phone, adress, cpf, _id }}
+                            />
                         </Box>
                     </Modal>
                     <Button size="small" onClick={() => deleteUser(_id)}>
@@ -49,4 +51,6 @@ export function Usercard({
             </Container>
         </>
     );
-}
+};
+
+export default Usercard;

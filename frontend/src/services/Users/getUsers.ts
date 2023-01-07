@@ -1,6 +1,6 @@
-import { userApi } from './api';
+import userApi from './api';
 
-export const getUsersServices = async () => {
+const getUsersServices = async () => {
     return await userApi
         .get('/users')
         .then((response) => response.data)
@@ -8,3 +8,5 @@ export const getUsersServices = async () => {
             error: true;
         });
 };
+
+export default getUsersServices;

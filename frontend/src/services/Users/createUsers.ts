@@ -1,8 +1,8 @@
 import { Iuser } from '../../interface/users';
-import { userApi } from './api';
+import userApi from './api';
 
-export const createUsersServices = async (user: Iuser) => {
-    console.log(user)
+const createUsersServices = async (user: Iuser) => {
+    console.log(user);
     return await userApi
         .post('/users', user)
         .then((response) => response.data)
@@ -11,3 +11,4 @@ export const createUsersServices = async (user: Iuser) => {
         });
 };
 
+export default createUsersServices;

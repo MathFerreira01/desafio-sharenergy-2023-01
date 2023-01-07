@@ -1,11 +1,13 @@
-import { Header } from '../../components/Header';
-import { CardStatusCode } from '../../components/Card';
+import Header from '../../components/Header';
+import CardStatusCode from '../../components/Card';
 
-export function RamdomDog() {
+const RamdomDog = () => {
     return (
         <>
-            <Header/>
+            <Header />
             <CardStatusCode />
         </>
     );
-}
+};
+
+export default RamdomDog;

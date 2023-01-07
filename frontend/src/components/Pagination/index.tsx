@@ -2,8 +2,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { paginationProps } from '../../interface/pagination';
 
-export function UsersPagination({ pageNumber, setPage }: paginationProps) {
-    
+const UsersPagination = ({ pageNumber, setPage }: paginationProps) => {
     return (
         <Stack>
             <Pagination
@@ -15,4 +14,6 @@ export function UsersPagination({ pageNumber, setPage }: paginationProps) {
             />
         </Stack>
     );
-}
+};
+
+export default UsersPagination;

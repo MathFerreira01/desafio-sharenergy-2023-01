@@ -1,6 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const apiUsers = axios.create({
-    baseURL:
-      "https://randomuser.me/api/",
-  });
+const apiUsers = axios.create({
+    baseURL: 'https://randomuser.me/api/',
+});
+
+export default apiUsers;

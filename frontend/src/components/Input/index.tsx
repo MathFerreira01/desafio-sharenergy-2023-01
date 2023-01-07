@@ -1,9 +1,9 @@
 import { InputHTMLAttributes } from 'react';
-import { Input } from './style'
+import { TextField } from './style';
 
-export function CampoTexto(props: InputHTMLAttributes<HTMLInputElement>) {
+const Input = (props: InputHTMLAttributes<HTMLInputElement>) => {
     return (
-        <Input
+        <TextField
             type={props.type}
             name={props.name}
             id={props.id}
@@ -12,6 +12,6 @@ export function CampoTexto(props: InputHTMLAttributes<HTMLInputElement>) {
             onChange={props.onChange}
         />
     );
-}
-export { Input };
+};
 
+export default Input;
