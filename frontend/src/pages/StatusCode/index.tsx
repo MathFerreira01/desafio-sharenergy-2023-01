@@ -22,7 +22,7 @@ export function Status() {
 
     return (
         <>
-            <Header children="Status Code" />
+            <Header/>
             <Text>HTTP Cats</Text>
             <Container>
                 <TextField

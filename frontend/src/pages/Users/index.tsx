@@ -31,7 +31,7 @@ export function Users() {
 
     return (
         <>
-            <Header children="Users" />
+            <Header/>
             <AppBar />
             <Container>
                 {users.map((user, index) => (

@@ -10,11 +10,9 @@ class UsersController {
           res.status(200).json(users);
           return;
         }
-        res
-          .status(500)
-          .send({
-            message: `${err.message} - Não foi possível localizar os usuários.`,
-          });
+        res.status(500).send({
+          message: `${err.message} - Não foi possível localizar os usuários.`,
+        });
       });
   };
 

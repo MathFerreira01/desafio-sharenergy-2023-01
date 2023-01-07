@@ -3,7 +3,7 @@ import * as dontenv from "dotenv";
 
 dontenv.config();
 
-const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.0ujlzjd.mongodb.net/${process.env.DB_NAME}`;
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.0ujlzjd.mongodb.net/${process.env.DB_TABLE}`;
 
 const connectionParams = {
   useNewUrlParser: true,

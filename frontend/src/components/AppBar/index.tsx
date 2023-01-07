@@ -4,7 +4,7 @@ import { Container } from './style';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import { Form } from '../Form';
+import Form from '../Form';
 
 
 export function AppBar() {
@@ -22,7 +22,7 @@ export function AppBar() {
                 aria-describedby="modal-modal-description"
             >
                 <Box>
-                    <Form/>
+                    <Form />
                 </Box>
             </Modal>
         </Container>

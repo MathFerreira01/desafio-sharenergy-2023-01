@@ -1,11 +1,11 @@
 import Button from '@mui/material/Button';
-import { Container, Wrapper, BoxTextField, WrapperButton } from './style';
+import { Container, Span, Wrapper, BoxTextField, WrapperButton } from './style';
 import { Iuser } from '../../interface/users';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
-import { Form } from '../Form';
+import Form  from '../Form';
 
 export function Usercard({
     index,
@@ -25,7 +25,7 @@ export function Usercard({
         <>
             <Container key={index}>
                 <Wrapper>
-                    <span>{name}</span>
+                    <Span>{name}</Span>
                     <BoxTextField>
                         <span>E-mail: {email}</span>
                         <span>Phone: {phone}</span>
@@ -39,7 +39,7 @@ export function Usercard({
                     </Button>
                     <Modal open={open} onClose={handleClose}>
                         <Box>
-                            <Form />
+                            <Form user={{name, email, phone, adress, cpf, _id}}/>
                         </Box>
                     </Modal>
                     <Button size="small" onClick={() => deleteUser(_id)}>

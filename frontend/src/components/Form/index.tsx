@@ -1,6 +1,7 @@
-import axios from 'axios';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/createUsers';
+import { useState } from 'react';
+import { Iuser } from '../../interface/users';
+import { createUsersServices } from '../../services/Users/createUsers';
+import { editUsersServices } from '../../services/Users/editUsers';
 import { Input } from '../Input';
 import {
     Container,
@@ -12,25 +13,36 @@ import {
     ButtonRegister,
 } from './style';
 
-export function Form() {
-    const { client, setClient } = useContext(UserContext);
+const initialState = {
+    name: '',
+    email: '',
+    phone: '',
+    adress: '',
+    cpf: '',
+};
 
-    async function createUser() {
-        const response = await axios.post('http://localhost:3000/users', {
-            ...client,
-        });
-        setClient({
-            name: '',
-            email: '',
-            phone: '',
-            adress: '',
-            cpf: '',
-        });
-    }
+const Form = ({ user }: { user: Iuser }) => {
+    const [client, setClient] = useState(user || initialState);
+
+    const handleSave = () => {
+        if (user?._id) {
+            editUser();
+            return;
+        }
+        createUser();
+    };
+
+    const createUser = async () => {
+        const response = await createUsersServices(client);
+    };
+
+    const editUser = async () => {
+        const response = await editUsersServices(user._id, client);
+    };
 
     return (
         <Container>
-            <form onSubmit={createUser}>
+            <form onSubmit={handleSave}>
                 <Text>Fill the Form</Text>
                 <BoxForm>
                     <Wrapper>
@@ -106,4 +118,6 @@ export function Form() {
             </form>
         </Container>
     );
-}
+};
+
+export default Form;
