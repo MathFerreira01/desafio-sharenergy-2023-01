@@ -1,12 +1,11 @@
-import Header from '../../components/Header';
 import UsersTable from '../../components/Table';
 import { Container } from './style';
-import Navbar from '../../components/Navbar';
+import Header from '../../components/Navbar';
 
 const Home = () => {
     return (
             <>
-                <Navbar/>
+                <Header/>
                 <Container>
                     <UsersTable />
                 </Container>

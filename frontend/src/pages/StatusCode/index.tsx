@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Container, SearchStatus, WrapperImage, Image, Text } from './style';
 
-import Header from '../../components/Header';
+import Header from '../../components/Navbar';
 import getStatusCodeServices from '../../services/statusCode/getStatusCode';
 
 const Status = () => {

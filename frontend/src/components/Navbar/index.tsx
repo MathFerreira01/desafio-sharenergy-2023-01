@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Botao from '../Button';
 import { Hamburger, Logo, Menu, MenuLink, Nav, WrapperLogout } from './style';
 
-const Navbar = () => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const clearStorage = () => {
@@ -31,4 +31,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Header;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import Header from '../../components/Header';
+import Header from '../../components/Navbar';
 import Usercard from '../../components/userCard';
 import AppBar from '../../components/AppBar';
 
