@@ -9,6 +9,8 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    
 `;
 
 export const Text = styled.h1`
@@ -20,6 +22,10 @@ export const Text = styled.h1`
 export const Navigation = styled.ul`
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 978px) {
+        display: none;
+    }
 `;
 
 export const LinkPage = styled.li`
@@ -45,3 +51,4 @@ export const LinkNavigation = styled(Link)`
         color: #76787a;
     }
 `;
+

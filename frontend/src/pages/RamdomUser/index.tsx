@@ -1,17 +1,16 @@
 import Header from '../../components/Header';
 import UsersTable from '../../components/Table';
 import { Container } from './style';
+import Navbar from '../../components/Navbar';
 
 const Home = () => {
     return (
-        <div>
             <>
-                <Header />
+                <Navbar/>
                 <Container>
                     <UsersTable />
                 </Container>
             </>
-        </div>
     );
 };
 
