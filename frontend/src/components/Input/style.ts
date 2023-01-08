@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TextField = styled.input`
-    max-width: 100%;
+    width: 100%;
     padding: 11px 13px;
     background: #f9f9fa;
     color: #000000;

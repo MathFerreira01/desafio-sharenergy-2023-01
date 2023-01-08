@@ -1,20 +1,21 @@
 import styled from 'styled-components';
-import Input from '../../components/Input';
+import { TextField } from '../../components/Input/style'; 
 
 export const Container = styled.section`
     text-align: center;
     margin-top: 2em;
+    width: 100%;
 `;
     
-export const TextField = styled(Input)`
-    width: 25%;
+export const SearchStatus = styled(TextField)`
+    width: 30%;
 `;
 
 export const WrapperImage = styled.div`
     margin-top: 1em;
 `;
 export const Image = styled.img`
-    width: 25%;
+    width: 30%;
 `;
 
 export const Text = styled.h2`

@@ -5,7 +5,7 @@
       "jest": true
     },
     "plugins": ["react", "jsx-a11y", "import"],
-    "extends": "airbnb",
+    "extends": "desafio",
     "rules": {
       "react/jsx-filename-extension": [
         "error",

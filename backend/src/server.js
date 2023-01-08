@@ -1,11 +1,11 @@
-import App from "./src/App.js";
+import App from "./App.js";
 import * as dontenv from "dotenv";
-import connect from "./src/config/dbConnect.js";
+import connect from "./config/dbConnect.js";
 
 dontenv.config();
 const port = process.env.PORT || 3000;
 
 App.listen(port, async () => {
   await connect();
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });

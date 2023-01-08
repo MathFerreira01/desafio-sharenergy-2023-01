@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, TextField, WrapperImage, Image, Text } from './style';
+import { Container, SearchStatus, WrapperImage, Image, Text } from './style';
 
 import Header from '../../components/Header';
 import getStatusCodeServices from '../../services/statusCode/getStatusCode';
@@ -24,7 +24,7 @@ const Status = () => {
             <Header />
             <Text>HTTP Cats</Text>
             <Container>
-                <TextField
+                <SearchStatus
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Search for the status code you want"
