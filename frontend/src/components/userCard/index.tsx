@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { Container, Span, Wrapper, BoxTextField, WrapperButton } from './style';
-import { Iuser } from '../../interface/users';
+import { Iuser } from '../../interface/Iusers';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';

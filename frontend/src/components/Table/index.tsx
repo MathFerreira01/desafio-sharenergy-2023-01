@@ -2,7 +2,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
-import { userProps } from '../../interface/ramdomUser';
+import { userProps } from '../../interface/IramdomUser';
 import { Image } from './style';
 
 const UsersTable = ({

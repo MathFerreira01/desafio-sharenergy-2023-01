@@ -1,37 +1,19 @@
-import { useEffect, useState } from 'react';
-
 import CardMedia from '@mui/material/CardMedia';
-import { CardActionArea } from '@mui/material';
-import { Loader } from '../Loader';
-
-import Botao from '../Button';
 import { ContainerCard, WrraperButton, Text } from './style';
 
-import { dogsProps } from '../../interface/dogs';
-import { getDogsServices } from '../../services/RamdomDog/getDogs';
+import { CardActionArea } from '@mui/material';
+import Botao from '../Button';
 
-const CardStatusCode = () => {
-    const [dogs, setDogs] = useState<dogsProps>();
-    const [loading, setLoading] = useState(false);
+import { Idog } from '../../interface/Idogs';
 
-    const getDogs = async () => {
-        const response = await getDogsServices();
-        if (!response.error) {
-            setDogs(response);
-        }
-    };
-
-    useEffect(() => {
-        getDogs();
-    }, []);
-
+const Card = ({ dogs, getDogs }: Idog) => {
     return (
         <>
             <Text>Click refresh to view a random dog</Text>
 
-            <ContainerCard sx={{ maxWidth: 345 }}>
+            <ContainerCard>
                 <CardActionArea>
-                    <CardMedia component="img" height="300" image={dogs?.url} />
+                    <CardMedia component="img" height="300" image={dogs} />
                 </CardActionArea>
                 <WrraperButton>
                     <Botao children="Refresh" onClick={getDogs} />
@@ -41,4 +23,4 @@ const CardStatusCode = () => {
     );
 };
 
-export default CardStatusCode;
+export default Card;

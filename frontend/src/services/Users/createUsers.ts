@@ -1,4 +1,4 @@
-import { Iuser } from '../../interface/users';
+import { Iuser } from '../../interface/Iusers';
 import userApi from './api';
 
 const createUsersServices = async (user: Iuser) => {

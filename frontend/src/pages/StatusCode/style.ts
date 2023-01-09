@@ -1,12 +1,21 @@
 import styled from 'styled-components';
-import { TextField } from '../../components/Input/style'; 
+import { TextField } from '../../components/Input/style';
 
 export const Container = styled.section`
-    text-align: center;
-    margin-top: 2em;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
-    
+
+export const WrapperStatus = styled.div`
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+`;
+
 export const SearchStatus = styled(TextField)`
     width: 30%;
 `;
@@ -19,9 +28,6 @@ export const Image = styled.img`
 `;
 
 export const Text = styled.h2`
-    text-align: center;
-    margin-top: 6%;
-
     color: #000000;
     font-size: 1.8em;
 `;

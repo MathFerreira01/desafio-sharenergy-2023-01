@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Iuser } from '../../interface/users';
+import { Iuser } from '../../interface/Iusers';
 import createUsersServices from '../../services/Users/createUsers';
 import editUsersServices from '../../services/Users/editUsers';
 import Input from '../Input';

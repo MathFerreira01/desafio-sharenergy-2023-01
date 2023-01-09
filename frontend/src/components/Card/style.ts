@@ -3,8 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 export const ContainerCard = styled(Card)`
-    margin: 0 auto;
     margin-top: 1em;
+    width: 30%;
+
+    @media screen and (max-width: 1024px) {
+        width: 30%;
+        min-width: 250px;
+    }
 `;
 
 export const WrraperButton = styled(CardContent)`
@@ -14,6 +19,9 @@ export const WrraperButton = styled(CardContent)`
 export const Text = styled.h2`
     color: #000000;
     text-align: center;
-    margin-top: 7%;
     font-size: 1.8em;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 1.4em;
+    }
 `;

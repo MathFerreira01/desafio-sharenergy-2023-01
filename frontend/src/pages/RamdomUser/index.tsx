@@ -5,7 +5,7 @@ import Header from '../../components/Navbar';
 import UsersPagination from '../../components/Pagination';
 import UsersTable from '../../components/Table';
 
-import { userProps } from '../../interface/ramdomUser';
+import { userProps } from '../../interface/IramdomUser';
 
 import getUserService from '../../services/RamdomUser/getUsers';
 

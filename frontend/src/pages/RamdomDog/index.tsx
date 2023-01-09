@@ -1,11 +1,29 @@
 import Header from '../../components/Navbar';
-import CardStatusCode from '../../components/Card';
+import Card from '../../components/Card';
+import { useEffect, useState } from 'react';
+import { getDogsServices } from '../../services/RamdomDog/getDogs';
+import { dogsProps } from '../../interface/Idogs';
+import { Container } from './style';
 
 const RamdomDog = () => {
+    const [dogs, setDogs] = useState<dogsProps>();
+
+    const getDogs = async () => {
+        const response = await getDogsServices();
+        if (!response.error) {
+            setDogs(response);
+        }
+    };
+
+    useEffect(() => {
+        getDogs();
+    }, []);
     return (
         <>
             <Header />
-            <CardStatusCode />
+            <Container>
+                <Card dogs={dogs?.url} getDogs={getDogs} fileSize={0} />
+            </Container>
         </>
     );
 };

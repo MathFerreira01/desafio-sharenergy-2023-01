@@ -68,13 +68,21 @@ export const Hamburger = styled.div`
 `;
 
 export const ButtonLogout = styled.button`
-        padding: 0.8rem;
-        cursor: pointer;
-        transition: all 0.2s ease-in;
-        border-radius: 10px;
-        color: #ffffff;
-        background-color: #7b7fda;
-        &:hover {
-            background-color: #7B49DA;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #7b7fda;
+    &:hover {
+        background-color: #7b49da;
+    }
+
+    @media screen and (max-width: 1024px) {
+        background-color: transparent;
+        :hover {
+            color: #7b7fda;
+            background: transparent;
         }
+    }
 `;

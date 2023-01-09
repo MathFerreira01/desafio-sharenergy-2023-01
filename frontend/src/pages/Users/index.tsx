@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 import Header from '../../components/Navbar';
-import Usercard from '../../components/userCard';
+import Usercard from '../../components/UserCard';
 import AppBar from '../../components/AppBar';
 
 import { Container } from './style';
 
-import { Iuser } from '../../interface/users';
+import { Iuser } from '../../interface/Iusers';
 import { Types } from 'mongoose';
 
 import { deleteUsersServices } from '../../services/Users/deleteUsers';
@@ -24,7 +24,7 @@ const Users = () => {
 
     const deleteUser = async (_id: Types.ObjectId) => {
         const response = await deleteUsersServices(_id);
-        
+
         getUsers();
     };
 
