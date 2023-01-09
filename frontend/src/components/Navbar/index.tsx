@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Botao from '../Button';
-import { Hamburger, Logo, Menu, MenuLink, Nav, WrapperLogout } from './style';
+import { Hamburger, Logo, Menu, MenuLink, Nav, ButtonLogout } from './style';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -23,10 +22,10 @@ const Header = () => {
                 <MenuLink to="/cats">Status Code</MenuLink>
                 <MenuLink to="/ramdom-dog">Ramdom Dog</MenuLink>
                 <MenuLink to="/users">Users</MenuLink>
+                <MenuLink to="/users">
+                    <ButtonLogout onClick={clearStorage} children="Logout" />
+                </MenuLink>
             </Menu>
-            <WrapperLogout>
-                <Botao onClick={clearStorage} children="Logout" />
-            </WrapperLogout>
         </Nav>
     );
 };

@@ -21,7 +21,7 @@ export const Nav = styled.div`
     align-items: center;
     flex-wrap: wrap;
     background: #000000;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -43,6 +43,8 @@ export const Menu = styled.div`
     @media (max-width: 1024px) {
         overflow: hidden;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
         transition: max-height 0.3s ease-in;
         width: 100%;
@@ -65,15 +67,14 @@ export const Hamburger = styled.div`
     }
 `;
 
-export const WrapperLogout = styled.div`
-    Button {
-        margin-right: 5rem;
-        width: 12rem;
-        height: 2.5rem;
-        border-radius: 100px;
+export const ButtonLogout = styled.button`
+        padding: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+        border-radius: 10px;
+        color: #ffffff;
         background-color: #7b7fda;
         &:hover {
             background-color: #7B49DA;
         }
-    }
 `;
