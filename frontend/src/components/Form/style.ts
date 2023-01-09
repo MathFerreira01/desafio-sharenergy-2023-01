@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 import Botao from '../Button';
-import  Input  from '../Input';
+import Input from '../Input';
+
+export const Wrapper = styled.section`
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
 export const Container = styled.section`
     width: 35%;
     background-color: #ffffff;
     border-radius: 10px;
-
     padding: 1em;
-    margin: 0 auto;
-    margin-top: 3em;
 
     > form {
         flex-wrap: wrap;
@@ -26,14 +32,9 @@ export const Text = styled.h2`
 
 export const BoxForm = styled.div`
     display: flex;
-    align-items: center;
-    padding: 1em;
-`;
 
-export const Wrapper = styled.div`
-    display: flex;
     flex-direction: column;
-    padding-left: 0.5em;
+    padding: 1em;
 `;
 
 export const Label = styled.label`
@@ -46,4 +47,22 @@ export const TextField = styled(Input)`
 
 export const ButtonRegister = styled(Botao)`
     margin: 1em;
+`;
+
+export const WrapperClose = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    > a {
+        color: #ffffff;
+        padding: 0.4em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: ease all 0.2s;
+        background: #7b7fda;
+        :hover {
+            background: #7b49da;
+        }
+    }
 `;

@@ -4,13 +4,14 @@ import createUsersServices from '../../services/Users/createUsers';
 import editUsersServices from '../../services/Users/editUsers';
 import Input from '../Input';
 import {
+    Wrapper,
     Container,
     Text,
     BoxForm,
-    Wrapper,
     Label,
     TextField,
     ButtonRegister,
+    WrapperClose,
 } from './style';
 
 const initialState = {
@@ -21,7 +22,7 @@ const initialState = {
     cpf: '',
 };
 
-const Form = ({ user }: { user: Iuser }) => {
+const Form = ({ user, handleCloseAdd, handleCloseEdit }: { user: Iuser }) => {
     const [client, setClient] = useState(user || initialState);
 
     const handleSave = () => {
@@ -40,12 +41,23 @@ const Form = ({ user }: { user: Iuser }) => {
         const response = await createUsersServices(client);
     };
 
+    const HandleClickClose = () => {
+        if (handleCloseAdd) {
+            handleCloseAdd();
+            return;
+        }
+        handleCloseEdit();
+    };
+
     return (
-        <Container>
-            <form onSubmit={handleSave}>
-                <Text>Fill the Form</Text>
-                <BoxForm>
-                    <Wrapper>
+        <Wrapper>
+            <Container>
+                <WrapperClose>
+                    <a onClick={HandleClickClose}>Close</a>
+                </WrapperClose>
+                <form onSubmit={handleSave}>
+                    <Text>Fill the Form</Text>
+                    <BoxForm>
                         <Label>Name</Label>
                         <Input
                             type="text"
@@ -57,8 +69,7 @@ const Form = ({ user }: { user: Iuser }) => {
                                 })
                             }
                         />
-                    </Wrapper>
-                    <Wrapper>
+
                         <Label>Email</Label>
                         <Input
                             type="email"
@@ -70,11 +81,9 @@ const Form = ({ user }: { user: Iuser }) => {
                                 })
                             }
                         />
-                    </Wrapper>
-                </BoxForm>
-                <BoxForm>
-                    <Wrapper>
-                        <Label>Telefone</Label>
+                    </BoxForm>
+                    <BoxForm>
+                        <Label>Phone</Label>
                         <TextField
                             type="text"
                             value={client.phone}
@@ -85,9 +94,8 @@ const Form = ({ user }: { user: Iuser }) => {
                                 })
                             }
                         />
-                    </Wrapper>
-                    <Wrapper>
-                        <Label>Endereço</Label>
+
+                        <Label>Address</Label>
                         <TextField
                             type="text"
                             value={client.adress}
@@ -98,8 +106,6 @@ const Form = ({ user }: { user: Iuser }) => {
                                 })
                             }
                         />
-                    </Wrapper>
-                    <Wrapper>
                         <Label>CPF</Label>
                         <TextField
                             type="text"
@@ -111,12 +117,12 @@ const Form = ({ user }: { user: Iuser }) => {
                                 })
                             }
                         />
-                    </Wrapper>
-                </BoxForm>
+                    </BoxForm>
 
-                <ButtonRegister children="Register" />
-            </form>
-        </Container>
+                    <ButtonRegister children="Register" />
+                </form>
+            </Container>
+        </Wrapper>
     );
 };
 

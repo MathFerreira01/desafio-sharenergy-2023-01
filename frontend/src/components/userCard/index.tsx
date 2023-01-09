@@ -1,11 +1,11 @@
-import Button from '@mui/material/Button';
+import { useState } from 'react';
 import { Container, Span, Wrapper, BoxTextField, WrapperButton } from './style';
 import { Iuser } from '../../interface/Iusers';
 
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import { useState } from 'react';
+import Button from '@mui/material/Button';
 import Form from '../Form';
+import Modal from '@mui/material/Modal';
+import { Box } from '@mui/material';
 
 const Usercard = ({
     index,
@@ -41,6 +41,7 @@ const Usercard = ({
                         <Box>
                             <Form
                                 user={{ name, email, phone, adress, cpf, _id }}
+                                handleCloseEdit={handleClose}
                             />
                         </Box>
                     </Modal>

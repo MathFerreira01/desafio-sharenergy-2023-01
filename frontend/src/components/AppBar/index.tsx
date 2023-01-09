@@ -15,12 +15,12 @@ const AppBar = () => {
             <Botao children="+ Add User" onClick={handleOpen} />
             <Modal
                 open={open}
-                onClose={handleClose}
+                
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box>
-                    <Form />
+                    <Form handleCloseAdd={handleClose}/>
                 </Box>
             </Modal>
         </Container>
