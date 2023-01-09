@@ -35,12 +35,6 @@ export const Title = styled.h2`
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
-export const SpanMessageError = styled.span`
-    text-align: center;
-    font-size: 14px;
-    color: #bc3633;
-`;
-
 export const ContainerCheckBox = styled.div`
     color: #76787A;
 `;

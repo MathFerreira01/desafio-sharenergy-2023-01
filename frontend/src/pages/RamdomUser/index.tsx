@@ -5,7 +5,7 @@ import Header from '../../components/Navbar';
 import UsersPagination from '../../components/Pagination';
 import UsersTable from '../../components/Table';
 
-import { userProps } from '../../interface/IramdomUser';
+import { userProps } from '../../interface/IRamdomUser';
 
 import getUserService from '../../services/RamdomUser/getUsers';
 
@@ -15,19 +15,28 @@ import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const [users, setUsers] = useState<userProps[]>([]);
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState('');
     const numberOfPages = 15;
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getProducts = async () => {
             const apiReturn = await getUserService(page);
-            if (!apiReturn.error) {
+
+            if (apiReturn) {
                 setUsers(apiReturn);
+                return;
             }
+            const notifyRamdomUserErro = toast.error('Unable to locate users.');
+            notifyRamdomUserErro;
         };
         getProducts();
     }, [page]);
@@ -41,6 +50,7 @@ const Home = () => {
 
     return (
         <>
+            <ToastContainer />
             <Header />
             <Container>
                 <SearchInput
@@ -52,13 +62,11 @@ const Home = () => {
                     <Table sx={{ minWidth: 650 }}>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Foto</TableCell>
-                                <TableCell align="right">
-                                    Nome Completo
-                                </TableCell>
+                                <TableCell>Photo</TableCell>
+                                <TableCell align="right">Full Name</TableCell>
                                 <TableCell align="right">Email</TableCell>
                                 <TableCell align="right">Username</TableCell>
-                                <TableCell align="right">Idade</TableCell>
+                                <TableCell align="right">Age</TableCell>
                             </TableRow>
                         </TableHead>
                         {filterUsers.map((user, index) => (

@@ -1,18 +1,19 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/Firebase/firebaseConfig';
 
-import { Wrapper, Title, Form, Label, Span, SpanMessageError } from './style';
+import { Wrapper, Title, Form, Label, Span } from './style';
 import Input from '../../components/Input';
 import Botao from '../../components/Button';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cadastro = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [messageError, setMessageError] = useState<string>('');
-    const [showMessageError, setShowMessageError] = useState<boolean>(false);
 
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
@@ -22,43 +23,44 @@ const Cadastro = () => {
         createUserWithEmailAndPassword(email, password);
 
         if (user) {
-            window.alert('Conta cadastrada com sucesso!');
+            const notify = toast.success('Successfully registered user!');
+            notify;
             window.location.href = '/';
         }
 
         if (error) {
-            setShowMessageError(true);
-            setMessageError(error.message);
+            const notify = toast.error(error.message);
+            notify;
         }
     };
 
     return (
-        <Wrapper>
-            <Title>Crie uma conta</Title>
-            {showMessageError ? (
-                <SpanMessageError>* {messageError}</SpanMessageError>
-            ) : null}
-            <Form onSubmit={handleSubmit}>
-                <Label>Email</Label>
-                <Input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-                <Label>Senha</Label>
-                <Input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-                <Span>
-                    Voltar para página de <Link to="/login">Login.</Link>
-                </Span>
-                <Botao children="cadastrar-se" />
-            </Form>
-        </Wrapper>
+        <>
+            <ToastContainer />
+            <Wrapper>
+                <Title>Create an Account</Title>
+                <Form onSubmit={handleSubmit}>
+                    <Label>Email</Label>
+                    <Input
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                    />
+                    <Label>Password</Label>
+                    <Input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <Span>
+                        Back to page <Link to="/login">Login.</Link>
+                    </Span>
+                    <Botao children="Register" />
+                </Form>
+            </Wrapper>
+        </>
     );
 };
 

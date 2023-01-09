@@ -4,25 +4,18 @@ import { Link } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/Firebase/firebaseConfig';
 
-import {
-    Wrapper,
-    Title,
-    Form,
-    Label,
-    Span,
-    SpanMessageError,
-    ContainerCheckBox,
-} from './style';
+import { Wrapper, Title, Form, Label, Span, ContainerCheckBox } from './style';
 
 import Input from '../../components/Input';
 import Botao from '../../components/Button';
 import Checkbox from '@mui/material/Checkbox';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [messageError, setMessageError] = useState<string>('');
-    const [showMessageError, setShowMessageError] = useState<boolean>(false);
     const [remember, setRemember] = useState(false);
 
     const [signInWithEmailAndPassword, user, loading, error] =
@@ -33,8 +26,8 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
 
         if (error) {
-            setShowMessageError(true);
-            setMessageError(error.message);
+            const notify = toast.error(error.message);
+            notify;
             return;
         }
 
@@ -61,41 +54,41 @@ const Login = () => {
     };
 
     return (
-        <Wrapper>
-            <Title>Faça login para acessar sua conta</Title>
-            <Form onSubmit={handleSubmit}>
-                {showMessageError ? (
-                    <SpanMessageError>* {messageError}</SpanMessageError>
-                ) : null}
-                <Label>Email</Label>
-                <Input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-                <Label>Senha</Label>
-                <Input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-                <ContainerCheckBox>
-                    <Checkbox
-                        value={remember}
-                        onChange={handleChangeCheckbox}
+        <>
+            <ToastContainer />
+            <Wrapper>
+                <Title>Log in to access your account</Title>
+                <Form onSubmit={handleSubmit}>
+                    <Label>Email</Label>
+                    <Input
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                     />
-                    <Span>Lembre me</Span>
-                </ContainerCheckBox>
+                    <Label>Password</Label>
+                    <Input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <ContainerCheckBox>
+                        <Checkbox
+                            value={remember}
+                            onChange={handleChangeCheckbox}
+                        />
+                        <Span>Remember me</Span>
+                    </ContainerCheckBox>
 
-                <Span>
-                    Não tem uma conta ainda?{' '}
-                    <Link to="/cadastro">Cadastre-se</Link>
-                </Span>
-                <Botao children="Entrar" />
-            </Form>
-        </Wrapper>
+                    <Span>
+                        Do not have an account yet?{' '}
+                        <Link to="/cadastro">Register</Link>
+                    </Span>
+                    <Botao children="Login" />
+                </Form>
+            </Wrapper>
+        </>
     );
 };
 
