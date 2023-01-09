@@ -6,7 +6,7 @@ import Form from '../Form';
 import Botao from '../Button';
 
 const AppBar = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 

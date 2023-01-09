@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Botao from '../Button';
 import Input from '../Input';
 
-export const Wrapper = styled.section`
+export const Container = styled.section`
     width: 100vw;
     height: 100vh;
 
@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
     justify-content: center;
 `;
 
-export const Container = styled.section`
+export const Wrapper = styled.section`
     width: 35%;
     background-color: #ffffff;
     border-radius: 10px;

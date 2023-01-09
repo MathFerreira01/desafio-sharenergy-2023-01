@@ -6,7 +6,7 @@ import AppBar from '../../components/AppBar';
 
 import { Container } from './style';
 
-import { Iuser } from '../../interface/Iusers';
+import { Iuser } from '../../interface/IUsers';
 import { Types } from 'mongoose';
 
 import { deleteUsersServices } from '../../services/Users/deleteUsers';

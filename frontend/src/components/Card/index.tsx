@@ -4,7 +4,7 @@ import { ContainerCard, WrraperButton, Text } from './style';
 import { CardActionArea } from '@mui/material';
 import Botao from '../Button';
 
-import { Idog } from '../../interface/Idogs';
+import { Idog } from '../../interface/IDogs';
 
 const Card = ({ dogs, getDogs }: Idog) => {
     return (

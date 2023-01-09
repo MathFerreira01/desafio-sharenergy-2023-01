@@ -1,4 +1,5 @@
 export interface userProps {
+    index: string;
     picture: {
         thumbnail: string;
     };

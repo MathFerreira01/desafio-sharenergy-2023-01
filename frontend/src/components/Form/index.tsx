@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Iuser } from '../../interface/Iusers';
+import { Iuser } from '../../interface/IUsers';
 import createUsersServices from '../../services/Users/createUsers';
 import editUsersServices from '../../services/Users/editUsers';
 import Input from '../Input';
@@ -22,7 +22,20 @@ const initialState = {
     cpf: '',
 };
 
-const Form = ({ user, handleCloseAdd, handleCloseEdit }: { user: Iuser }) => {
+interface IModal {
+    handleCloseAdd: () => void;
+    handleCloseEdit: () => void;
+}
+
+const Form = ({
+    user,
+    handleCloseAdd,
+    handleCloseEdit,
+}: {
+    user: Iuser;
+    handleCloseAdd: IModal;
+    handleCloseEdit: IModal;
+}) => {
     const [client, setClient] = useState(user || initialState);
 
     const handleSave = () => {
@@ -50,8 +63,8 @@ const Form = ({ user, handleCloseAdd, handleCloseEdit }: { user: Iuser }) => {
     };
 
     return (
-        <Wrapper>
-            <Container>
+        <Container>
+            <Wrapper>
                 <WrapperClose>
                     <a onClick={HandleClickClose}>Close</a>
                 </WrapperClose>
@@ -121,8 +134,8 @@ const Form = ({ user, handleCloseAdd, handleCloseEdit }: { user: Iuser }) => {
 
                     <ButtonRegister children="Register" />
                 </form>
-            </Container>
-        </Wrapper>
+            </Wrapper>
+        </Container>
     );
 };
 

@@ -1,6 +1,6 @@
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import { paginationProps } from '../../interface/Ipagination';
+import { paginationProps } from '../../interface/IPagination';
 
 const UsersPagination = ({ pageNumber, setPage }: paginationProps) => {
     return (

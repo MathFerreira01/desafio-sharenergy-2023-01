@@ -2,7 +2,7 @@ import Header from '../../components/Navbar';
 import Card from '../../components/Card';
 import { useEffect, useState } from 'react';
 import { getDogsServices } from '../../services/RamdomDog/getDogs';
-import { dogsProps } from '../../interface/Idogs';
+import { dogsProps } from '../../interface/IDogs';
 import { Container } from './style';
 
 const RamdomDog = () => {
