@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/Firebase/firebaseConfig';
@@ -17,6 +17,7 @@ const Login = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [remember, setRemember] = useState(false);
+    const navigate = useNavigate();
 
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
@@ -35,8 +36,7 @@ const Login = () => {
             if (remember) {
                 localStorage.setItem('user', JSON.stringify(user));
             }
-            console.log(remember);
-            window.location.href = '/';
+            navigate('/');
         }
     };
 
@@ -45,7 +45,7 @@ const Login = () => {
         const userParsed = user ? JSON.parse(user) : null;
 
         if (userParsed) {
-            window.location.href = '/';
+            navigate('/');
         }
     }, []);
 

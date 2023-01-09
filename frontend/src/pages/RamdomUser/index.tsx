@@ -48,6 +48,7 @@ const Home = () => {
             user.name.first.includes(search)
     );
 
+
     return (
         <>
             <ToastContainer />

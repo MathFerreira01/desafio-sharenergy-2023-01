@@ -3,7 +3,7 @@ import * as dontenv from "dotenv";
 import connect from "./config/dbConnect.js";
 
 dontenv.config();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 App.listen(port, async () => {
   await connect();

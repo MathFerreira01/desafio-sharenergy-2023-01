@@ -1,5 +1,5 @@
-import { FormEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/Firebase/firebaseConfig';
@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Cadastro = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const navigate = useNavigate();
 
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
@@ -25,7 +26,7 @@ const Cadastro = () => {
         if (user) {
             const notify = toast.success('Successfully registered user!');
             notify;
-            window.location.href = '/';
+            navigate('/');
         }
 
         if (error) {
