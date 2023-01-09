@@ -1,4 +1,4 @@
-<h1 align="center" id="top">App<span style="color:#10BEF5">Desafio SHARENERGY</span></h1>
+<h1 align="center" id="top">Desafio SHARENERGY</h1>
 <br>
 
 ## Video de apresentação do projeto no YouTube
@@ -43,4 +43,3 @@ cd backend
 npm run dev
 ```
 
-[Voltar para o topo 🔝](#top)
