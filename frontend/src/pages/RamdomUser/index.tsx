@@ -28,17 +28,16 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const getProducts = async () => {
+        const getRomdomUsers = async () => {
             const apiReturn = await getUserService(page);
 
             if (apiReturn) {
                 setUsers(apiReturn);
                 return;
             }
-            const notifyRamdomUserErro = toast.error('Unable to locate users.');
-            notifyRamdomUserErro;
+            toast.error('Unable to locate users.');
         };
-        getProducts();
+        getRomdomUsers();
     }, [page]);
 
     const filterUsers = users.filter(
@@ -47,7 +46,6 @@ const Home = () => {
             user.email.includes(search) ||
             user.name.first.includes(search)
     );
-
 
     return (
         <>

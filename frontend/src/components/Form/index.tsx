@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { user } from '../../interface/IUsers';
+import { IUser } from '../../interface/IUsers';
 import createUsersServices from '../../services/Users/createUsers';
 import editUsersServices from '../../services/Users/editUsers';
 import Input from '../Input';
@@ -24,19 +24,12 @@ const initialState = {
     cpf: '',
 };
 
-interface IModal {
-    handleCloseAdd: () => void;
-    handleCloseEdit: () => void;
-}
-
 const Form = ({
     user,
-    handleCloseAdd,
-    handleCloseEdit,
+    handleClose,
 }: {
-    user: user;
-    handleCloseAdd: IModal;
-    handleCloseEdit: IModal;
+    user?: Partial<IUser>;
+    handleClose: () => void;
 }) => {
     const [client, setClient] = useState(user || initialState);
 
@@ -48,15 +41,17 @@ const Form = ({
     };
 
     const editUser = async () => {
-        const response = await editUsersServices(user._id, client);
-        const notifyEditError = toast.error(response.error);
-        const notifyEditSucess = toast.success(response.message);
-        
-        if (response.error) {
-            notifyEditError;
-            return;
+        if (user?._id) {
+            const response = await editUsersServices(user._id, client);
+            const notifyEditError = toast.error(response.error);
+            const notifyEditSucess = toast.success(response.message);
+
+            if (response.error) {
+                notifyEditError;
+                return;
+            }
+            notifyEditSucess;
         }
-        notifyEditSucess;
     };
 
     const createUser = async () => {
@@ -72,11 +67,9 @@ const Form = ({
     };
 
     const HandleClickClose = () => {
-        if (handleCloseAdd) {
-            handleCloseAdd();
-            return;
+        if (handleClose) {
+            handleClose();
         }
-        handleCloseEdit();
     };
 
     return (

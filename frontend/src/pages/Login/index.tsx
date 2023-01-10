@@ -27,8 +27,7 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
 
         if (error) {
-            const notify = toast.error(error.message);
-            notify;
+            toast.error(error.message);
             return;
         }
 

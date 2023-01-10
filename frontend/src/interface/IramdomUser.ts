@@ -1,5 +1,5 @@
 export interface userProps {
-    index: string;
+    index: number;
     picture: {
         thumbnail: string;
     };
@@ -19,4 +19,15 @@ export interface userProps {
     };
 
     filteredUsers: () => void;
+}
+
+
+export interface IRamdomUser {
+    index: number;
+    photo:string;
+    firstname:string;
+    lastName:string;
+    email:string;
+    username:string;
+    age:number; 
 }

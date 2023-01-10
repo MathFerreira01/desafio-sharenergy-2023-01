@@ -45,7 +45,7 @@ export const Menu = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
+        max-height: ${({ isOpen }: {isOpen: boolean}) => (isOpen ? '300px' : '0')};
         transition: max-height 0.3s ease-in;
         width: 100%;
     }

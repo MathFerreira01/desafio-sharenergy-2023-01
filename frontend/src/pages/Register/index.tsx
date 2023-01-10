@@ -24,14 +24,12 @@ const Cadastro = () => {
         createUserWithEmailAndPassword(email, password);
 
         if (user) {
-            const notify = toast.success('Successfully registered user!');
-            notify;
+            toast.success('Successfully registered user!');
             navigate('/');
         }
 
         if (error) {
-            const notify = toast.error(error.message);
-            notify;
+            toast.error(error.message);
         }
     };
 

@@ -8,14 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Container } from './style';
 
-import { user } from '../../interface/IUsers';
+import { IUser } from '../../interface/IUsers';
 import { Types } from 'mongoose';
 
 import { deleteUsersServices } from '../../services/Users/deleteUsers';
 import getUsersServices from '../../services/Users/getUsers';
 
 const Users = () => {
-    const [users, setUsers] = useState<user[]>([]);
+    const [users, setUsers] = useState<IUser[]>([]);
 
     const getUsers = async () => {
         const response = await getUsersServices();
@@ -51,7 +51,7 @@ const Users = () => {
             <Container>
                 {users.map((user, index) => (
                     <Usercard
-                        key={index}
+                        index={index}
                         _id={user._id}
                         name={user.name}
                         email={user.email}

@@ -1,18 +1,9 @@
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { IRamdomUser } from '../../interface/IRamdomUser';
 
 import { Image } from './style';
-
-interface IUser {
-    index: string;
-    photo:string;
-    firstname:string;
-    lastName:string;
-    email:string;
-    username:string;
-    age:number; 
-}
 
 const UsersTable = ({
     index,
@@ -22,7 +13,7 @@ const UsersTable = ({
     email,
     username,
     age,
-}: IUser) => {
+}: IRamdomUser) => {
     return (
         <TableBody>
             <TableRow key={index}>

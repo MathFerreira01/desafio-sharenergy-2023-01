@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Container, Span, Wrapper, BoxTextField, WrapperButton } from './style';
-import { Iuser } from '../../interface/Iusers';
+import { IUser } from '../../interface/IUsers';
 
 import Button from '@mui/material/Button';
 import Form from '../Form';
@@ -16,7 +16,7 @@ const Usercard = ({
     adress,
     cpf,
     deleteUser,
-}: Iuser) => {
+}: IUser) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -41,7 +41,7 @@ const Usercard = ({
                         <Box>
                             <Form
                                 user={{ name, email, phone, adress, cpf, _id }}
-                                handleCloseEdit={handleClose}
+                                handleClose={handleClose}
                             />
                         </Box>
                     </Modal>

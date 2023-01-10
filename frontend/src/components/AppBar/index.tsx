@@ -20,7 +20,7 @@ const AppBar = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box>
-                    <Form handleCloseAdd={handleClose}/>
+                    <Form handleClose={handleClose}/>
                 </Box>
             </Modal>
         </Container>

@@ -18,8 +18,7 @@ const RamdomDog = () => {
             setDogs(response);
             return;
         }
-        const notifyErrorDogs = toast.error('Unable to locate random dogs.');
-        notifyErrorDogs;
+        toast.error('Unable to locate random dogs.');
     };
 
     useEffect(() => {
